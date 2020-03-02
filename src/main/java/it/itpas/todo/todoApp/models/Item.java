@@ -25,5 +25,9 @@ public class Item extends BaseEntity {
     private String note;
     private Boolean completed;
 
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
 }
