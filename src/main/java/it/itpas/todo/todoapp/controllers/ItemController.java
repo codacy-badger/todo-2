@@ -18,8 +18,14 @@ public class ItemController {
     int variabileUnPocoStronza;
     //QUESTA È UNA VARIABILE INFAME FARE ATTENZIONE!!
 
-    
+
     ArrayList<Item> items = new ArrayList<Item>();
+
+    //Funzione con Naming convention Sballata
+
+    public int FUNZIONESTRANAASSAI(int VARIABILE) {
+        return VARIABILE;
+    }
 
     public ItemController() {
         super();
