@@ -1,6 +1,7 @@
 package it.itpas.todo.todoApp.controllers;
 
 
+import antlr.collections.List;
 import it.itpas.todo.todoApp.models.Item;
 import it.itpas.todo.todoApp.viewModels.ItemViewModel;
 import lombok.val;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 @RequestMapping("/api/items")
 public class ItemController {
 
+    ArrayList<Item> itens = new ArrayList<Item>();
     @GetMapping("/")
     public ResponseEntity<?> GetAllItems() {
         try {
@@ -49,6 +51,15 @@ public class ItemController {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }
+    }
+    public void SeedItems() {
+        val item = new Item("t1","ciao");
+        val item2 = new Item("t2","ciaociao");
+        val item3 =new Item("t3","ciao3");
+
+        items.add(item);
+        items.add(item2);
+        items.add(item3);
 
     }
 }
