@@ -14,16 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @val
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
 
-    ArrayList<Item> items = new ArrayList<Item>();
+   private List<Item> items;
 
     public ItemController() {
         super();
+        items = new ArrayList<Item>();
         this.seedItems();
     }
 
