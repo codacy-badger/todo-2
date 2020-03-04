@@ -14,6 +14,11 @@ import java.util.ArrayList;
 @RequestMapping("/api/items")
 public class ItemController {
 
+
+    int variabileUnPocoStronza;
+    //QUESTA È UNA VARIABILE INFAME FARE ATTENZIONE!!
+
+    
     ArrayList<Item> items = new ArrayList<Item>();
 
     public ItemController() {
