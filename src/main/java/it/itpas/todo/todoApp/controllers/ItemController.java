@@ -62,7 +62,23 @@ public class ItemController {
                 .build();
         item.setId(0);
 
+         val item2= Item.builder()
+                 .name("TaskSeed2")
+                 .description("Inizializzazione2")
+                 .completed(true)
+                 .build();
+         item2.setId(1);
+
+         val item3= Item.builder()
+                 .name("TaskSeed3")
+                 .description("Inizializzazione3")
+                 .completed(true)
+                 .build();
+         item3.setId(2);
+
         items.add(item);
+        items.add(item2);
+        items.add(item3);
 
     }
 
@@ -75,7 +91,7 @@ public class ItemController {
             items.add(item);
 
         } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.I_AM_A_TEAPOT);
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(item, HttpStatus.OK);
 
