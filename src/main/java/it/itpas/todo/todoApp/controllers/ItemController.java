@@ -6,10 +6,7 @@ import it.itpas.todo.todoApp.viewModels.ItemViewModel;
 import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -50,5 +47,39 @@ public class ItemController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }
 
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> UpdateItem(@PathVariable int id, @RequestBody Item item)
+    {
+        try
+        {
+            val itemUpdated = getItemById(id);
+            //val mock = new Item();
+            itemUpdated.setId(item.getId());
+            itemUpdated.setDescription(item.getDescription());
+            itemUpdated.setName(item.getName());
+            return new ResponseEntity<>(itemUpdated,HttpStatus.OK);
+        }
+        catch (NullPointerException exNull)
+        {
+            return new ResponseEntity<>(exNull.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    private Item getItemById(int id)
+    {
+        val item = new Item();
+
+        item.setId(id);
+        item.setName("hello");
+        item.setDescription("saluto");
+        item.setCompleted(false);
+
+        return item;
     }
 }
