@@ -1,7 +1,7 @@
-package it.itpas.todo.todoApp.controllers;
+package it.itpas.todo.todoapp.controllers;
 
 
-import it.itpas.todo.todoApp.models.Item;
+import it.itpas.todo.todoapp.models.Item;
 import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

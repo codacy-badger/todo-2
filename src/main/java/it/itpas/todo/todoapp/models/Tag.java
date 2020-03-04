@@ -1,4 +1,4 @@
-package it.itpas.todo.todoApp.models;
+package it.itpas.todo.todoapp.models;
 
 
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -14,15 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class ItemGroup extends BaseEntity {
+public class Tag extends BaseEntity {
 
     private String name;
+    private String color;
+    private String icon;
     private String description;
-    private User owner;
-    private List<User> relatedUser;
-    private Date deadline;
-    private List<Item> items;
-    private List<Tag> tags;
-
+    private List<ItemGroup> itemGroups;
 
 }

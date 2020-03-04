@@ -1,4 +1,4 @@
-package it.itpas.todo.todoApp.models;
+package it.itpas.todo.todoapp.models;
 
 import lombok.*;
 

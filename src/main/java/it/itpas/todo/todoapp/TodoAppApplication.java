@@ -1,4 +1,4 @@
-package it.itpas.todo.todoApp;
+package it.itpas.todo.todoapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

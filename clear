@@ -52,11 +52,11 @@
 [1m--- a/src/main/java/it/itpas/todo/todoApp/controllers/ItemController.java[m
 [1m+++ b/src/main/java/it/itpas/todo/todoApp/controllers/ItemController.java[m
 [36m@@ -1,4 +1,54 @@[m
- package it.itpas.todo.todoApp.controllers;[m
+ package it.itpas.todo.todoapp.controllers;[m
  [m
 [32m+[m
-[32m+[m[32mimport it.itpas.todo.todoApp.models.Item;[m
-[32m+[m[32mimport it.itpas.todo.todoApp.viewModels.ItemViewModel;[m
+[32m+[m[32mimport it.itpas.todo.todoapp.models.Item;[m
+[32m+[m[32mimport it.itpas.todo.todoapp.viewModels.ItemViewModel;[m
 [32m+[m[32mimport lombok.val;[m
 [32m+[m[32mimport org.springframework.http.HttpStatus;[m
 [32m+[m[32mimport org.springframework.http.ResponseEntity;[m

@@ -1,4 +1,4 @@
-package it.itpas.todo.todoApp;
+package it.itpas.todo.todoapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
