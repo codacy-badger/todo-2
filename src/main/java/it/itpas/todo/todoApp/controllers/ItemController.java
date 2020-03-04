@@ -91,10 +91,43 @@ public class ItemController {
             items.add(item);
 
         } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(item, HttpStatus.OK);
+    }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> UpdateItem(@PathVariable int id, @RequestBody Item item)
+    {
+        try
+        {
+            val itemUpdated = getItemById(id);
+            itemUpdated.setId(item.getId());
+            itemUpdated.setDescription(item.getDescription());
+            itemUpdated.setName(item.getName());
+            return new ResponseEntity<>(itemUpdated,HttpStatus.OK);
+        }
+        catch (NullPointerException exNull)
+        {
+            return new ResponseEntity<>(exNull.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
+    private Item getItemById(int id)
+    {
+        Item itemFound = null;
+
+        for (Item item:items)
+        {
+            if(item.getId().compareTo(id) == 0) {
+                itemFound = item;
+            }
+        }
+
+        return itemFound;
     }
 }
