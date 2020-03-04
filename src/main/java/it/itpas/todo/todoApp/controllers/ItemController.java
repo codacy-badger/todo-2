@@ -1,11 +1,7 @@
 package it.itpas.todo.todoApp.controllers;
 
 
-import antlr.collections.List;
-import it.itpas.todo.todoApp.models.BaseEntity;
 import it.itpas.todo.todoApp.models.Item;
-import it.itpas.todo.todoApp.viewModels.ItemViewModel;
-import lombok.Builder;
 import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +18,12 @@ public class ItemController {
 
     public ItemController() {
         super();
-        this.SeedItems();
+        this.seedItems();
     }
 
 
     @GetMapping("/")
-    public ResponseEntity<?> GetAllItems() {
+    public ResponseEntity<?> getAllItems() {
         try {
 
             return new ResponseEntity<>(items,HttpStatus.OK);
@@ -38,7 +34,7 @@ public class ItemController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> GetItem(@PathVariable int id) {
+    public ResponseEntity<?> getItem(@PathVariable int id) {
 
         try {
 
@@ -54,7 +50,7 @@ public class ItemController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-     public void SeedItems() {
+     public void seedItems() {
         val item= Item.builder()
                 .name("TaskSeed1")
                 .description("Inizializzazione")
@@ -83,7 +79,7 @@ public class ItemController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> CreateItem (@RequestBody Item item) {
+    public ResponseEntity<?> createItem (@RequestBody Item item) {
 
         try {
             System.out.printf("Hai creato l'item: \nId: %d\nNome: %s\nDescrizione: %s\nCompletato: %b\n", item.getId(), item.getName(), item.getDescription(), item.getCompleted());
@@ -97,7 +93,7 @@ public class ItemController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> UpdateItem(@PathVariable int id, @RequestBody Item item)
+    public ResponseEntity<?> updateItem(@PathVariable int id, @RequestBody Item item)
     {
         try
         {
